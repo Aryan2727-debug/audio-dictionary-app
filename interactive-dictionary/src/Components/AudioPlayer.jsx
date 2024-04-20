@@ -12,10 +12,11 @@ function AudioPlayer({ audioFile }) {
         <>
             <button
             onClick={playMusic}
-            className="bg-purple-200 rounded-full w-14 h-14 flex justify-center items-center mt-2"
+            className="bg-purple-200 rounded-full w-14 h-14 flex justify-center items-center mt-2 ml-3"
             >
             <BsFillPlayFill className="  text-purple-500 w-7 h-7" />
             </button>
+            <p style={{color: "white"}} className="mt-18 font-bold ml-3">Click here to hear audio pronounciation!</p>
         </>
     )
 };
