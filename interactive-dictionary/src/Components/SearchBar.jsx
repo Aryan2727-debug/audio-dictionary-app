@@ -1,0 +1,1 @@
+// this module provides a search bar interface for users to  input their search queries

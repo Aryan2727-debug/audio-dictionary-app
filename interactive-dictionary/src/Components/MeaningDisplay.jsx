@@ -1,0 +1,1 @@
+// this component displays the meanings, parts of speech, definitions, examples and synonyms of a word

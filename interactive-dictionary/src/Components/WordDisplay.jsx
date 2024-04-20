@@ -1,0 +1,1 @@
+// this component renders the word itself, its phonetic transcription

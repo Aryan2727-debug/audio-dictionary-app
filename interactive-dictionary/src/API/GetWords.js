@@ -1,0 +1,1 @@
+// this module fetches word definitions and audio pronounciations from an external API
