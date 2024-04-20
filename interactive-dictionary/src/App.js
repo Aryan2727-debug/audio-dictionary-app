@@ -35,7 +35,7 @@ function App() {
       ) : (
         <>
           {searchInitiated && Object.keys(data).length === 0 ? (
-            <p className="mt-18 font-bold text-2xl">No words found</p>
+            <p style={{color: 'white'}} className="mt-18 font-bold text-2xl">No words found</p>
           ) : (
             <>
               <WordDisplay data={data}/>
