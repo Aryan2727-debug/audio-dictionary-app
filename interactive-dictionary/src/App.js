@@ -1,23 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import MeaningDisplay from "./Components/MeaningDisplay";
+import SearchBar from "./Components/SearchBar";
+import WordDisplay from "./Components/WordDisplay";
+import { fetch_words } from "./API/GetWords";
 
 function App() {
+  // this state variable stores the data fetched from the API in the form of an object
+  const [data, setData] = useState({});
+  // this state variable tracks whether data is being currently fetched
+  const [loading, setLoading] = useState(false);
+  // this state variable tracks whether a search query has been initiated
+  const [searchInitiated, setSearchInitiated] = useState(false);
+
+  async function fetch_data(word){
+    try {
+      // setting the state variables to true to indicate that data fetching has started
+      setLoading(true);
+      setSearchInitiated(true);
+      // fetching the data from the fetch_words function which uses the dictionary API
+      const get_data = await fetch_words(word);
+      // setting/updating the data in the state variable object
+      setData({ ...get_data[0] });
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="m-16">
+      <SearchBar callback={fetch_data} />
+      {loading ? (
+        <p className="mt-18 font-bold text-2xl">Loading...</p>
+      ) : (
+        <>
+          {searchInitiated && Object.keys(data).length === 0 ? (
+            <p className="mt-18 font-bold text-2xl">No words found</p>
+          ) : (
+            <>
+              <WordDisplay data={data}/>
+              <MeaningDisplay data={data}/>
+            </>
+          )}
+        </>
+      )}
     </div>
   );
 }
