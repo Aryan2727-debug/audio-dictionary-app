@@ -4,7 +4,7 @@ import React from "react";
 function MeaningDisplay() {
     return(
         <>
-            <h1>Meaning Display</h1>
+            <h1 style={{color: "white"}}>Meaning Display</h1>
         </>
     )
 };

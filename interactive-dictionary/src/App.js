@@ -28,6 +28,7 @@ function App() {
   }
   return (
     <div className="m-16">
+    <h1 style={{color: 'white', display: 'flex', justifyContent: 'center'}} className="font-bold text-5xl text-slate-100">PhoneticsHub</h1>
       <SearchBar callback={fetch_data} />
       {loading ? (
         <p className="mt-18 font-bold text-2xl">Loading...</p>
